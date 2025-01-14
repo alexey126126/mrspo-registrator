@@ -1,0 +1,39 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    root: info
+    com.example.mrsporegistrator: debug
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: registrator-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  main:
+    allow-circular-references: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:15432/mrspo_db
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      pool-name: HikariPool-1
+      maximum-pool-size: 10
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: mrspo_schema
+
