@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -20,7 +19,7 @@ public class InventoryEventDto {
     private String productName;
 
     @NotBlank(message = "Event type cannot be blank")
-    private String eventType;
+    private boolean eventType;
 
     @NotNull(message = "Quantity cannot be null")
     @Min(value = 1, message = "Quantity must be at least 1")
@@ -31,5 +30,5 @@ public class InventoryEventDto {
     private Integer price;
 
     @NotNull(message = "Timestamp cannot be null")
-    private LocalDateTime timestamp;
+    private String timestamp;
 }

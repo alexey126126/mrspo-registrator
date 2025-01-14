@@ -4,4 +4,5 @@ import com.example.mrsporegistrator.entities.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InventoryRepository extends JpaRepository<ProductEntity, Long> {
+    ProductEntity findByName(String name);
 }

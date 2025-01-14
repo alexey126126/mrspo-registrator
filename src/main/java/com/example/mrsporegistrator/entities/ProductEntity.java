@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Table(name = "products")
 public class ProductEntity extends BaseEntity{
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
     @Column(name = "quantity")
     private int quantity;

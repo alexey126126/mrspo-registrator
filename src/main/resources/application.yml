@@ -9,11 +9,10 @@ logging:
 spring:
   kafka:
     bootstrap-servers: localhost:29092
-    consumer:
-      group-id: registrator-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    listener:
+      # ????????? ?????? ?????? ?????? ???? ????????????
+      ack-mode: record
+
   main:
     allow-circular-references: true
 
